@@ -1,0 +1,1223 @@
+/* ========================================== */
+/* ОБЩИЕ СТИЛИ                                */
+/* ========================================== */
+
+:root {
+    --r-background-color: #0F172A;
+    --r-main-color: #F8FAFC;
+}
+
+.reveal .slides {
+    text-align: left;
+}
+
+.reveal .slides section .fragment {
+  transition: all 0.5s ease-in-out !important;
+}
+
+.qed-block {
+  /* text-align: right уже в инлайне, но можно вынести сюда */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reveal .slides section.scrollable {
+  overflow-y: auto !important;
+  max-height: 1100px; /* match your slide height */
+}
+
+.reveal-viewport {
+  --r-controls-spacing: 4px; /* Default is 12px */
+}
+
+.reveal .controls {
+  z-index: 9999 !important;
+}
+
+
+.reveal .slides section.question-slide {
+  /* Радиальный градиент */
+
+  /* Заставляем секцию занимать весь слайд */
+  height: 100vh !important;
+  min-height: 100vh !important;
+  position: relative;
+}
+
+.reveal .slides section.question-slide::after {
+  content: "?";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: 'JetBrains Mono',monospace;
+  font-size: 400px;       /* подберите под свой масштаб */
+  color: rgba(56, 189, 248, 0.03); /* полупрозрачный белый */
+  font-weight: bold;
+  line-height: 1;
+
+  pointer-events: none;   /* чтобы не мешал кликам */
+  z-index: 1;
+}
+
+.bg-question-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono',monospace;
+  font-size: 400px;
+  color: rgba(56, 189, 248, 0.05);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+.reveal {
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    text-align: left;
+    
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px; /* Расстояние между точками */
+}
+
+.reveal h1 {
+    font-family: "Inter", sans-serif, bold;
+    font-size: 96px;
+    text-transform: none;
+    text-align: left;
+}
+
+.reveal h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 64px;
+    text-transform: none;
+    text-align: left;
+}
+
+.reveal h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    text-transform: none;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #F8FAFC;
+    letter-spacing: 0.15em;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.reveal h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    text-align: left;
+    font-weight: bold;
+    color: #F8FAFC;
+    letter-spacing: 0.15em;
+    padding-bottom: 40px;
+}
+
+.reveal code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+}
+
+.outline-text {
+    font-size: 250px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    -webkit-text-stroke: 2px #38BDF8; /* толщина и цвет контура */
+    -webkit-text-fill-color: transparent; /* прозрачная заливка */
+}
+
+.cr-text {
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.small-text {
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: 0.15em;;
+    color: #34D399;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+img {
+  display: block;
+}
+
+/* Ensure container hides extra text and reveals it step-by-step */
+.typewriter pre {
+  overflow: hidden; 
+  border-right: .15em solid #ff9900; /* Simulated cursor */
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The cursor blinking animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ff9900; }
+}
+
+.fragment.custom-range.visible:not(.current-fragment) {
+  display: none;
+  height: 0px;
+}
+
+.reveal .slides section .fragment.fade-out.visible {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+  border: 0 !important;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: transparent;
+    border-radius: 0;
+}
+
+
+/* 1. Target the list container */
+.bracket-list {
+  list-style-type: none; /* Removes default numbers */
+  counter-reset: bracket-counter; /* Creates a custom counter variable */
+  padding-left: 20px;
+}
+
+/* 2. Target each list item */
+.bracket-list li {
+  counter-increment: bracket-counter; /* Increments the counter by 1 */
+  margin-bottom: 8px;
+  position: relative;
+}
+
+/* 3. Generate the bracketed numbers */
+.bracket-list li::before {
+  content: "(" counter(bracket-counter) ")    "; /* Combines brackets and counter */
+  font-weight: bold; /* Optional styling */
+  color: #F8FAFC; /* Optional styling */
+  margin-right: 8px; /* Spaces the number away from text */
+}
+
+/* 1. Сбрасываем стандартную нумерацию и инициализируем счетчик */
+.num-block-list {
+  list-style: none; /* Убираем стандартные цифры */
+  padding-left: 0;  /* Убираем стандартный отступ слева */
+  counter-reset: item; /* Создаем счетчик с именем 'item' */
+}
+
+/* 2. Увеличиваем счетчик для каждого элемента и настраиваем выравнивание */
+.num-block-list li {
+  counter-increment: item; /* Увеличиваем счетчик на 1 */
+  display: flex;
+  align-items: flex-start; /* Выравниваем номер по верху текста */
+  margin-bottom: 16px; /* Отступ между пунктами */
+}
+
+/* 3. Создаем сам "значок" с номером */
+.num-block-list li::before {
+  /* Формируем контент: счетчик с ведущим нулем для чисел 1-9 */
+  content: counter(item, decimal-leading-zero); 
+  
+  /* Стили прямоугольника */
+  background-color: rgba(56, 189, 248, 0.15); /* Цвет заливки (светло-синий) */
+  color: #38BDF8;            /* Цвет текста (темно-синий) */
+  border-radius: 8px;        /* Скругленные углы */
+  
+  /* Размеры и отступы */
+  padding: 4px 10px;
+  min-width: 42px;           /* Фиксируем ширину, чтобы 01 и 10 имели одинаковый размер */
+  text-align: center;
+  margin-right: 12px;        /* Отступ от текста */
+  
+  /* Шрифт */
+  font-weight: bold;
+  
+  /* Запрещаем сжимать номер, если текст очень длинный */
+  flex-shrink: 0; 
+}
+
+  .blank-list-item {
+    list-style-type: none; /* убираем стандартную точку */
+    position: relative;
+  }
+  .blank-list-item::before {
+    content: "📝      fdf"; /* вставляем эмодзи и пробел */
+    /* двигаем эмодзи влево на место маркера */
+    font-size: 0.9em;
+  }
+
+  p.drop-cap::first-letter {
+    font-size: 2em; /* Размер большой буквы */
+    float: left;      /* Выравнивание по левому краю */
+    line-height: 1; /* Высота строки для точной посадки */
+    margin-right: 8px; /* Отступ справа от буквицы */
+    color: #b22222;   /* Цвет буквы */
+    font-weight: bold;
+    padding-top: 15px; /* Жирное начертание */
+  }
+
+.hljs-comment {
+  color: #94A3B8 !important;
+  font-style: normal;
+}
+
+/* ========================================== */
+/* НАБОР КОДА.                                */
+/* ========================================== */
+/* Скрываем символы до момента их "печати" */
+/* Скрываем символы до момента их "печати" */
+.typing-char {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Делаем символы видимыми */
+.typing-char.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Мигающий курсор */
+.typing-cursor {
+    display: inline-block;
+    width: 0.3ch;
+    height: 1.1em;
+    background: currentColor;
+    animation: blink-cursor 0.8s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    visibility: hidden; /* Скрыт по умолчанию, пока не начнется печать */
+}
+
+.typing-cursor.active {
+    visibility: visible;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Убедитесь, что переносы строк и пробелы сохраняются */
+pre code {
+    white-space: pre; 
+}
+
+
+/* ========================================== */
+/* КАСТОМНАЯ ПОДСВЕТКА СТРОК В КОДЕ           */
+/* ========================================== */
+.reveal pre code .highlight,
+.reveal pre code .highlight-line {
+  /* Сбрасываем стандартные стили Reveal, чтобы они не мешали */
+  background: transparent !important;
+  border: none !important;
+  border-radius: 5px;
+  
+  /* Рисуем левую обводку и фон с помощью градиента */
+  background: linear-gradient(
+    to right,
+    #38BDF8 0,             /* Начало левой обводки */
+    #38BDF8 4px,           /* Конец левой обводки (толщина 4px) */
+    rgba(56, 189, 248, 0.15) 4px, /* Начало фона */
+    rgba(56, 189, 248, 0.15) 100% /* Конец фона */
+  ) !important;
+  
+  /* Убираем жирность (на всякий случай) */
+  font-weight: normal !important;
+  font-style: normal !important;
+  color: inherit !important;
+}
+
+.reveal pre {
+    /* Убираем стандартный фон reveal.js */
+    background: #1E293B;
+    
+    /* Убираем тень */
+    box-shadow: none;
+    
+    /* Скругляем края */
+    border-radius: 12px;
+    
+    /* Добавляем тонкую рамку для красоты */
+    /*border: 1px solid rgba(255, 255, 255, 0.1);*/
+
+    margin: 20px 0;
+
+}
+
+.reveal pre code {
+    background: #1E293B;
+    
+    /* Отступы внутри блока кода */
+    line-height: 1.5;
+
+    max-height: 800px;
+    overflow-y: auto;
+      overflow-x: auto;
+
+    border-radius: 0 0 12px 12px;
+
+    color: #F8FAFC;
+}
+
+
+.reveal pre.code-no-bg code {
+    background: transparent;
+    padding: 0;
+}
+
+.hljs tr, .hljs li, .code-line {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ========================================== */
+/* ОКНО КОДА                                  */
+/* ========================================== */
+.code-header {
+    background: #334155; /* Slightly lighter than the code block */
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid #111;
+}
+
+/* Window control dots */
+.dot {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.red { background-color: #F87171; }
+.yellow { background-color: #FBBF24; }
+.green { background-color: #34D399; }
+
+/* Optional file title text */
+.code-title {
+    color: #94A3B8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.code-window pre {
+    margin: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    position: relative;
+}
+
+/* ========================================== /
+/ ГОРИЗОНТАЛЬНЫЙ СПИСОК МЕТОРИК (Исправленный) /
+/ ========================================== */
+
+/* Повышаем специфичность через .reveal и используем !important для display */
+.reveal .var-list-horizontal {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Отменяем глобальный margin-bottom и настраиваем ячейки */
+.reveal .var-list-horizontal .var-item {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  padding: 10px 30px;
+  
+  /* ГЛАВНОЕ: обнуляем глобальное правило li:not(:last-child) */
+  margin-bottom: 0 !important; 
+  
+  gap: 10px;
+}
+
+.reveal .var-list-horizontal .var-key {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748B;
+}
+
+.reveal .var-list-horizontal .var-val {
+  font-size: 32px;
+}
+
+.val-comp {
+    font-size: 32px;
+}
+
+.val-swaps {
+    font-size: 32 px;
+}
+
+/* ========================================== /
+/ INLINE-БЕЙДЖИ (Подсказки внутри кода)      /
+/ ========================================== */
+.pre .var-inline {
+  display: inline-flex;
+  align-items: center;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 18px;
+  margin-left: 15px;
+  color: #F8FAFC;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.var-inline::before {
+  content: '→';
+  color: #38BDF8;
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+/* Если значение внутри инлайн-бейджа */
+.var-inline .type-string { color: #34D399; }
+.var-inline .type-number { color: #38BDF8; }
+
+/* ========================================== /
+/ 变量面板联动状态 (配合 Reveal Fragments)    /
+/ ========================================== */
+
+/* 让检查器容器作为定位上下文，并固定最小高度防止跳动 */
+.var-inspector {
+  position: relative; 
+  min-height: 220px; /* 根据你最多的变量行数调整这个高度 */
+  overflow: hidden;
+}
+
+/* 状态图层默认隐藏 */
+.var-state-layer {
+  position: absolute;
+  top: 45px; /* 留出 header 的高度 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+  
+  /* 初始状态隐藏 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 当 Reveal.js 激活当前 fragment 时，显示该图层 */
+.var-state-layer.current-fragment,
+.var-state-layer.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 让激活的变量行有呼吸灯效果（可选） */
+.var-state-layer .var-item.active {
+  animation: pulse-active 2s infinite;
+}
+
+@keyframes pulse-active {
+  0%, 100% { background: rgba(56, 189, 248, 0.08); }
+  50%      { background: rgba(56, 189, 248, 0.15); }
+}
+
+
+/* ========================================== /
+/ ПАНЕЛЬ ИНСПЕКТОРА ПЕРЕМЕННЫХ (DevTools)    /
+/ ========================================== */
+.var-inspector {
+  background: #1E293B;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  /* Чтобы высота подстраивалась под код */
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* Шапка инспектора */
+.var-inspector-header {
+  background: #334155;
+  padding: 12px 15px;
+  color: #94A3B8;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Иконка в шапке */
+.var-inspector-header::before {
+  content: '📊';
+  color: #38BDF8;
+  font-size: 20px;
+}
+
+/* Список переменных */
+.var-list {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+  flex: 1;
+}
+
+/* Строка переменной */
+.var-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 20px; /* Чуть меньше кода для иерархии */
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Подсветка измененной/активной переменной */
+.var-item.active, .var-item:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-left-color: #38BDF8;
+}
+
+.var-key {
+  color: #94A3B8;
+  font-size: 20px;
+}
+
+.var-val {
+  font-weight: bold;
+  color: #F8FAFC;
+}
+
+/* Типизация значений (как в IDE) */
+.var-val.type-string { color: #34D399; } /* Строки - зеленые */
+.var-val.type-number { color: #34D399; } /* Числа - синие */
+.var-val.type-bool   { color: #C084FC; } /* Булевые - фиолетовые */
+.var-val.type-null   { color: #F87171; font-style: italic; font-weight: normal; } /* Null - красные */
+
+
+/* ========================================== /
+/ INLINE-БЕЙДЖИ (Подсказки внутри кода)      /
+/ ========================================== */
+.reveal pre code .var-inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: #334155 !important;
+  border: 1px solid #475569 !important;
+  border-radius: 6px !important;
+  padding: 2px 10px !important;
+  font-size: 18px !important;
+  margin-left: 15px !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.reveal pre code .var-inline::before {
+  content: '→' !important;
+  color: #38BDF8 !important;
+  margin-right: 6px !important;
+  font-weight: bold !important;
+}
+
+.reveal pre code .type-string { color: #34D399 !important; }
+.reveal pre code .type-number { color: #38BDF8 !important; }
+.reveal pre code .type-bool { color: #C084FC !important; }
+
+/* ========================================== /
+/ ОКНО ТЕРМИНАЛА (BASH)                      /
+/ ========================================== */
+
+/* Шапка терминала — чуть темнее, чем у code-window */
+.terminal-header {
+  background: #1E293B;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #0F172A;
+}
+
+/* Заголовок терминала */
+.terminal-title {
+  color: #64748B;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  background: #020617 !important;
+  color: #E2E8F0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  line-height: 1.6;
+  padding: 20px 25px;
+  border-radius: 0 0 12px 12px;
+  white-space: pre; /* Сохраняет пробелы и переносы строк */
+  margin: 0;
+}
+
+/* Тело терминала */
+.terminal-window pre {
+  margin: 0 !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+.terminal-window pre code {
+  background: #020617 !important;       /* темнее, чем блок кода */
+  color: #E2E8F0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  line-height: 1.6;
+  padding: 20px 25px;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Промпт: $ или ❯ */
+.terminal-prompt {
+  color: #34D399;
+  user-select: none;                    /* нельзя выделить при копировании */
+  margin-right: 8px;
+}
+
+/* Вывод команды (неинтерактивный текст) */
+.terminal-output {
+  color: #94A3B8;
+}
+
+/* Ошибки в терминале */
+.terminal-error {
+  color: #F87171;
+}
+
+/* Мигающий курсор */
+.terminal-cursor::after {
+  content: '█';
+  color: #F8FAFC;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ========================================== 
+/ PILL BADGE (Статусы и сложность)           /
+/ ========================================== */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  border-radius: 999px; /* Форма таблетки */
+  margin-left: auto;    /* Прижимает бейдж к правому краю в flex-контейнере */
+  
+  /* Дефолтный (нейтральный) стиль */
+  background: rgba(148, 163, 184, 0.15);
+  color: #94A3B8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* --- СТАТУСЫ --- */
+.pill-passed, .pill-success {
+  background: rgba(52, 211, 153, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 1);
+}
+
+.pill-fail, .pill-error {
+  background: rgba(248, 113, 113, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(248, 113, 113, 1);
+}
+
+.pill-warning, .pill-pending {
+  background: rgba(251, 191, 36, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(251, 191, 36, 1);
+}
+
+/* --- СЛОЖНОСТЬ / ИНФО --- */
+.pill-easy, .pill-info-blue {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.pill-medium, .pill-info-purp {
+  background: rgba(192, 132, 252, 0.15);
+  color: #C084FC;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+.pill-hard, .pill-info-red {
+  background: rgba(248, 113, 113, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* ========================================== */
+/* НАСТРОЙКА КОЛОНОК                          */
+/* ========================================== */
+.columns {
+    display: flex;
+    gap: 30px; /* Расстояние между колонками */
+    align-items: flex-start; /* Выравнивание колонок по верхнему краю */
+    text-align: left; /* Возвращаем выравнивание текста внутри колонок влево */
+}
+
+.col {
+    flex: 1; /* Делит пространство поровну */
+    /* Можно добавить рамку или фон для наглядности */
+    padding: 15px;
+}
+
+/* Если нужна колонка в 2 раза шире другой */
+.col-wide {
+    flex: 2;
+}
+
+.columns-middle {
+    align-items: center;
+}
+
+ /* Градиентный разделитель */
+.col-divider {
+    position: relative;
+}
+
+.col-divider::after {
+    content: '';
+    position: absolute;
+    right: 60px;
+    top: 0%;
+    bottom: 0%;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(56, 189, 248, 1) 50%,
+        transparent 100%
+    );
+}
+
+/* ========================================== */
+/* НАСТРОЙКА СПИСКОВ                          */
+/* ========================================== */
+.reveal .my-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.reveal .my-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+.reveal .my-list li::before {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-size: 0.9em;
+  line-height: 1;
+  color: var(--marker-color, #38BDF8);
+}
+
+.reveal .my-list li.arrow::before { content: "▸"; }
+.reveal .my-list li.check::before { content: "✓"; }
+.reveal .my-list li.cross::before { content: "✗"; }
+
+
+
+.arrow-list li::marker {
+    content: "▸    "; /* Replaces default bullets with an emoji */
+    color: #C084FC; /* Changes color if using text/symbols */
+    font-size: 0.9em;
+}
+
+.reveal .arrow-st-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.reveal .arrow-st-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+.reveal .arrow-st-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: #38BDF8;
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.bullet-list li::marker {
+    content: "•    "; /* Replaces default bullets with an emoji */
+    color: #38BDF8; /* Changes color if using text/symbols */
+    font-size: 2em;
+}
+
+.tick-list li::marker {
+    content: "✓    "; /* Replaces default bullets with an emoji */
+    color: #34D399; /* Changes color if using text/symbols */
+    font-size: 0.9em;
+}
+
+.tick-list-yellow li::marker {
+    content: "✓    "; /* Replaces default bullets with an emoji */
+    color: #FBBF24; /* Changes color if using text/symbols */
+    font-size: 0.9em;
+}
+
+li.tick-marker-yellow::marker {
+    content: "✓    ";
+    color: #FBBF24;
+    font-size: 0.9em;
+}
+
+li.tick-marker-green::marker {
+    content: "✓    ";
+    color: #34D399;
+    font-size: 0.9em;
+}
+
+li.tick-marker-red::marker {
+    content: "✓    ";
+    color: #fb7171;
+    font-size: 0.9em;
+}
+
+li.play-marker-green::marker {
+    content: "▸    ";
+    color: #34D399;
+    font-size: 0.9em;
+}
+
+li.play-marker-red::marker {
+    content: "▸    ";
+    color: #fb7171;
+    font-size: 0.9em;
+}
+
+li.play-marker-yell::marker {
+    content: "▸    ";
+    color: #FBBF24;
+    font-size: 0.9em;
+}
+
+li.cross-marker-red::marker {
+    content: "✗    ";
+    color: #fb7171;
+    font-size: 0.9em;
+}
+
+li.paper-marker::marker {
+    content: "📝    ";
+    color: #fb7171;
+    font-size: 0.9em;
+}
+
+li:not(:last-child) {
+    margin-bottom: 30px; /* Separates items by 10px */
+}
+
+/* ========================================== */
+/* КАРТОЧКИ                                   */
+/* ========================================== */
+.card {
+    /* Позиционирование для псевдоэлемента */
+    position: relative;
+    
+    /* Отступы внутри карточки */
+    padding: 20px 20px 20px 35px; /* Больше отступ слева для "утолщенной" границы */
+
+    align-items: center;
+    
+    /* Скругления ТОЛЬКО справа (верхний правый, нижний правый) */
+    border-radius: 0 20px 20px 0;
+    
+    /* Основная обводка (тонкая) */
+    border: var(--card-border-width, 2px) solid var(--card-border-color, #4a4a6a);
+    border-left: none; /* Убираем левую границу, её заменит псевдоэлемент */
+    
+    /* Фон карточки */
+    background: var(--card-bg-color, rgba(255, 255, 255, 0.08));
+    
+    /* Цвет текста */
+    color: var(--card-text-color, #e0e0e0);
+    
+    /* Тень для объема */
+    /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);*/
+    
+    /* Отступ сверху/снизу для красоты */
+    margin: 15px 0;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--card-accent-width, 6px); /* Толщина "утолщенной" границы */
+    background: var(--card-accent-color, #e94560); /* Цвет акцентной полосы */
+    border-radius: 0 0 0 0; /* Скругление только верхнего левого и нижнего левого углов */
+}
+
+.card-info-blue {
+    --card-accent-color: #38BDF8;
+    --card-bg-color: rgba(30, 41, 59, 0.8);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-info-purp {
+    --card-accent-color: #C084FC;
+    --card-bg-color: rgba(30, 41, 59, 0.8);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-info-green {
+    --card-accent-color: #34D399;
+    --card-bg-color: rgba(30, 41, 59, 0.8);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-info-yellow {
+    --card-accent-color: #FBBF24;
+    --card-bg-color: rgba(30, 41, 59, 0.8);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-info-full-green {
+    --card-accent-color: #34D399;
+    --card-bg-color: rgba(52, 211, 153, 0.15);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-definition {
+    --card-accent-color: #38BDF8;
+    --card-bg-color: rgba(56, 189, 248, 0.1);
+    --card-border-width: 2px;
+    --card-border-color: #38bdf8;
+    padding: 10px 10px 10px 35px;
+}
+
+.card-theorem {
+    --card-accent-color: #34D399;
+    --card-bg-color: rgba(52, 211, 153, 0.10);
+    --card-border-width: 2px;
+    --card-border-color: #34D399;
+    padding: 10px 10px 10px 35px;
+}
+
+.card-proof {
+    --card-accent-color: #FBBF24;
+    --card-bg-color: rgba(251, 191, 36, 0.15);
+    --card-border-width: 2px;
+    --card-border-color: #FBBF24;
+    padding: 10px 10px 10px 35px;
+}
+
+.card-info-full-yellow {
+    --card-accent-color: #FBBF24;
+    --card-bg-color: rgba(251, 191, 36, 0.15);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+.card-info-full-red {
+    --card-accent-color: #fb7171;
+    --card-bg-color: rgba(248, 113, 113, 0.15);
+    --card-border-width: 0px;
+    --card-border-color: transparent;
+}
+
+ /* ========================================== */
+/* ГЛОБАЛЬНЫЙ ФУТЕР (fixed, не прыгает)       */
+/* ========================================== */
+.global-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: #64748B;
+    background: rgba(11, 17, 32, 0.7);
+    z-index: 100;
+    
+    /* Плавное скрытие/показ */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Состояние скрытия */
+.global-footer.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+/* Градиентная линия сверху футера */
+.global-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        #334155 50%,
+        transparent 100%
+    );
+}
+
+/* Три зоны футера */
+.global-footer .footer-left {
+    position: absolute;
+    left: 30px;
+}
+
+.global-footer .footer-center {
+    /* По центру через flex */
+}
+
+.global-footer .footer-right {
+    position: absolute;
+    right: 30px;
+}
+
+/* Номер слайда в футере */
+.global-footer .footer-slide-number {
+    color: #38BDF8;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums; /* Чтобы цифры не прыгали */
+}
+
+/* ========================================== */
+/* УБИРАЕМ ВСТРОЕННЫЙ НОМЕР СЛАЙДА REVEAL.JS  */
+/* ========================================== */
+.reveal .slide-number {
+    display: none !important;
+}
+
+/* ========================================== */
+/* ДЛЯ ВОПРОСОВ                               */
+/* ========================================== */
+.quiz-answers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quiz-answers li {
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #F8FAFC;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.quiz-answers li:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Выбранный правильный ответ */
+.quiz-answers li.correct {
+  background-color: rgba(52, 211, 153, 0.15); /* зелёный */
+  color: #ffffff;
+  border-color: #34D399;
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+}
+
+/* Выбранный неправильный ответ */
+.quiz-answers li.wrong {
+  background-color: rgba(248, 113, 113, 0.15); /* красный */
+  color: #ffffff;
+  border-color: #fb7171;
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
+}
